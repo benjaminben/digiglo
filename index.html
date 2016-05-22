@@ -21,11 +21,11 @@
       color: white;
       opacity: 0;
       text-align: center;
+      margin: 1.5em auto;
       transition: all 1s ease;
       -webkit-transition: all 1s ease;
     }
     form > span {
-      margin: 0 auto;
       border-bottom: 2px solid white;
     }
     input {
@@ -39,7 +39,7 @@
     }
     input[type="submit"] {
       display: block;
-      margin: 1em auto;
+      margin: 1.33em auto;
       padding: 0.33em 1.33em;
       border: 1px solid white;
       font-size: 0.8em;
@@ -47,7 +47,7 @@
       -webkit-transition: all 0.18s ease;
     }
     input[type="submit"]:hover,
-    input[type="submit"]:after {
+    input[type="submit"]:active {
       background: #01AED8;
       border: 1px solid #01AED8;
     }
@@ -80,18 +80,17 @@
         if (frame === 116) {
           clearInterval(interval);
           form.style.opacity = 1;
+          form.style.margin = "0em auto";
         }
       }, 40)
 
       form.addEventListener("submit", function(e) {
         e.preventDefault();
-        console.log('cleekd')
+        document.querySelector('input[type="submit"]').style.backgroundColor = '#01AED8';
       })
 
     })();
   </script>
 </body>
-
-
 
 </html>
