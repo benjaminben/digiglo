@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Digiglo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <style>
+    body {
+      position: absolute; margin: 0;
+      top:0;right:0;bottom:0;left:0;
+      background-color: black;
+    }
+    img {
+      display: block;
+      margin: 0 auto;
+      width: 100%;
+      max-width: 600px;
+    }
+    form {
+      color: white;
+      opacity: 0;
+      transition: all 1s ease;
+      -webkit-transition: all 1s ease;
+    }
+    form > span {
+      display: block;
+      text-align: center;
+      margin: 0 auto;
+    }
+    input[type="email"] {
+      margin: 0 auto;
+      background: none;
+    }
+    input[type="submit"] {
+      display: block;
+      margin: 1em auto;
+    }
+  </style>
+</head>
+
+
+
+<body>
+  <img />
+  <form>
+    <span>
+      <span>Email:</span>
+      <input type="email" />
+    </span>
+    <input type="submit" value="submit" />
+  </form>
+
+  <script>
+    (function render() {
+      var arr = [];
+      var form = document.getElementsByTagName('form')[0];
+      var logo = document.getElementsByTagName('img')[0];
+      var frame = 0;
+
+      var interval = setInterval(function(){
+        logo.src = 'assets/dg-' + frame + '.png';
+        frame++;
+
+        if (frame === 116) {
+          clearInterval(interval);
+          form.style.opacity = 1;
+        }
+      }, 40)
+
+    })();
+  </script>
+</body>
+
+
+
+</html>
