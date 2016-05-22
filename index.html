@@ -1,15 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
   <title>Digiglo</title>
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://use.typekit.net/toj4npp.js"></script>
+  <script>try{Typekit.load({ async: true });}catch(e){}</script>
+
 
   <style>
     body {
       position: absolute; margin: 0;
       top:0;right:0;bottom:0;left:0;
       background-color: black;
+      font-family: 'abolition';
     }
     img {
       display: block;
@@ -21,9 +25,12 @@
       color: white;
       opacity: 0;
       text-align: center;
-      margin: 1.5em auto;
+      margin: 1.66em auto;
       transition: all 1s ease;
       -webkit-transition: all 1s ease;
+      font-family: 'abolition';
+      font-size: 1em;
+      letter-spacing: 0.1em;
     }
     form > span {
       border-bottom: 2px solid white;
@@ -35,6 +42,12 @@
       background: none;
       outline: none;
       color: white;
+      font-family: 'abolition';
+      letter-spacing: 0.1em;
+    }
+    input[type="email"] {
+      width: 100%;
+      max-width: 150px;
       font-size: 1em;
     }
     input[type="submit"] {
