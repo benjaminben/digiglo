@@ -15,15 +15,15 @@
     }
     img {
       display: block;
-      margin: 0 auto;
+      margin: 0 auto -2em;
       width: 100%;
-      max-width: 600px;
+      max-width: 540px;
     }
     form {
       color: white;
       opacity: 0;
       text-align: center;
-      margin: 1.66em auto;
+      margin: 2em auto;
       transition: all 1s ease;
       -webkit-transition: all 1s ease;
       font-family: 'Lato', sans-serif;
@@ -45,7 +45,7 @@
       font-family: 'Lato', sans-serif;
       letter-spacing: 0.1em;
     }
-    input[type="email"] {
+    input[type="text"] {
       width: 100%;
       max-width: 200px;
       font-size: 1em;
@@ -67,27 +67,48 @@
       border: 1px solid #01AED8;
       color: white;
     }
+    #cta {
+      display: block;
+      color: #E2E000;
+      font-size: 0.8em;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin: 2em auto 1.33em;
+      text-align: center;
+      opacity: 0;
+      text-shadow: 0px 0px 1px #E2E000;
+      transition-property: margin, opacity;
+      transition-duration: 0.66s, 1s;
+      -webkit-transition-property: margin, opacity;
+      -webkit-transition-duration: 0.66s, 1s;
+    }
   </style>
 </head>
 
-
-
 <body>
   <img />
-  <form>
+  <span id="cta">glo up now</span>
+  <div id="mc_embed_signup">
+  <form action="//digiglo.us13.list-manage.com/subscribe/post?u=d11769b856c5085cd2f53f298&amp;id=1765d65b12" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
     <span>
-      <span>Email:</span>
-      <input type="email" spellcheck="false" />
+      <span for="mce-EMAIL">Email: </span>
+      <input type="text" value="" name="EMAIL" class="required email" id="mce-EMAIL">
+      <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
     </span>
-    <input type="submit" value="SUBMIT" />
+      <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_d11769b856c5085cd2f53f298_1765d65b12" tabindex="-1" value=""></div>
+      <input type="submit" value="SUBSCRIBE" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
+  </form>
+  </div>
   </form>
 
   <script>
     (function render() {
-      var arr = [];
-      var form = document.getElementsByTagName('form')[0];
-      var logo = document.getElementsByTagName('img')[0];
-      var frame = 0;
+      var arr = [],
+          cta = document.getElementById('cta'),
+          form = document.getElementsByTagName('form')[0],
+          logo = document.getElementsByTagName('img')[0],
+          email = document.querySelector('input[type="text"]'),
+          frame = 0;
 
       var interval = setInterval(function(){
         logo.src = 'assets/dg-' + frame + '.png';
@@ -95,14 +116,23 @@
 
         if (frame === 116) {
           clearInterval(interval);
-          form.style.opacity = 1;
-          form.style.margin = "0em auto";
+          cta.style.cssText += "opacity:1;margin:1em auto 1.33em";
+          setTimeout(function(){
+            form.style.cssText += 'opacity:1;margin:0em auto';
+          }, 666)
         }
       }, 40)
 
       form.addEventListener("submit", function(e) {
-        e.preventDefault();
+        if ( !email.value.match(/@.*\./) ) {
+          e.preventDefault();
+          cta.style.color = 'red';
+          cta.innerHTML = 'address invalid'
+          return
+        }
         document.querySelector('input[type="submit"]').style.cssText += 'background-color:#01AED8;color:white;';
+        cta.innerHTML = 'have a glo day';
+        cta.style.color = '#E2E000';
       })
 
     })();
